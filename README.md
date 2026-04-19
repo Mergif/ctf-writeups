@@ -12,7 +12,7 @@ hello its Meriem Derbil AkA Watson, im  a computer science student learning cybe
 ## Writeups
 
 ### picoCTF2025
-Challenge: [HASHCRACK]
+1.Challenge: [HASHCRACK]
 - Category: Crypto 
 - Difficulty: Easy
 
@@ -35,9 +35,9 @@ Compared generated hashes with the target hash
 the flag:
 picoCTF{UseStr0nG_h@shEs_&PaSswDs!_6965e43b}
 
-Challenge: [Even RSA Can Be Broken]
-Category: Crypto
-Difficulty: Easy–Medium
+2.Challenge: [Even RSA Can Be Broken]
+-Category: Crypto
+-Difficulty: Easy–Medium
 
 What I learned:
 
@@ -60,8 +60,7 @@ m = pow(c, d, N)
 Converted result to readable text
 
 Tools used:
-
 Python (sympy, Crypto.Util.number)
 Modular arithmetic
-The flag : 
+-The flag : 
 picoCTF{tw0_1$_pr!m3df98b648}
