@@ -22,7 +22,7 @@ Understand that hashes are one-way functions
 Use scripting to brute-force hashes with wordlists (ROCKYOU)
 
 **Steps:**
--setps:
+
 dentified hash type based on length:
 32 chars means MD5
 40 chars means SHA-1
@@ -30,6 +30,7 @@ dentified hash type based on length:
 Wrote a Python script using hashlib to hash candidate passwords
 Compared generated hashes with the target hash
  use common passwords to find matches
+ 
 -tools used :Python  lib :(hashlib)
 -Wordlists (rockyou.txt)
 the flag:
@@ -45,9 +46,7 @@ Basics of RSA encryption and decryption
 RSA security depends on strong prime numbers
 If modulus N is weak (divisible by 2), RSA can be broken easily
 
-Steps:
-
-Steps:
+**Steps:**
 
 Received RSA values: N, e, ciphertext
 Factored N using Python (sympy.factorint)
@@ -59,7 +58,7 @@ Decrypted ciphertext using:
 m = pow(c, d, N)
 Converted result to readable text
 
-Tools used:
+-Tools used:
 Python (sympy, Crypto.Util.number)
 Modular arithmetic
 -The flag : 
