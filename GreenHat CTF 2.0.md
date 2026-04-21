@@ -306,7 +306,7 @@ I found tools that allow encoding/decoding files inside chess games.
 5. Extract the hidden binary file  
 6. Read the content to reveal the flag  
 
-** Solution:**
+**Solution:**
 
 git clone https://github.com/WintrCat/chessencryption
 cd chessencryption
@@ -315,6 +315,7 @@ with open("crazy_game.pgn", "r") as f:
     pgn_data = f.read()
 decode(pgn_data, "recovered_secret.bin")
 strings recovered_secret.bin
+
  Flag:
 ghctf{ch3ckm4te_g00d_g4m3}
 ----
