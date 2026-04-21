@@ -1,6 +1,7 @@
 ### GHCTF 2.0
 - Team: RedCall
 - Role: Player (cryptography,misc,osint,forensics)
+- solved: +10 challenges
 
 **Description:**
 Participated in GHCTF 2.0 as part of team *RedCall*. I contributed by solving multiple challenges, mainly in cryptography,misc,osint,forensics . This experience helped me improve my analytical thinking, speed, and teamwork during real-time competitions.
