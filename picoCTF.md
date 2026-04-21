@@ -24,8 +24,8 @@ the flag:
 picoCTF{UseStr0nG_h@shEs_&PaSswDs!_6965e43b}
 
 2.Challenge: [Even RSA Can Be Broken]
--Category: Crypto
--Difficulty: Easy–Medium
+- Category: Crypto
+- Difficulty: Easy–Medium
 
 What I learned:
 
