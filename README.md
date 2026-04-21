@@ -1,10 +1,10 @@
 # ctf-writeups
-hello its Meriem Derbil AkA Watson, im  a computer science student learning cybersecurity and participating in CTF competitions
+hello its Meriem Derbil AkA Watson, im  3rd year computer science student learning cybersecurity and participating in CTF competitions
 ##  Skills
-- Web Exploitation 
+- reverse engineering 
 - Cryptography
 - misk
 - osint
-- Linux basics
+- Linux 
 
 
