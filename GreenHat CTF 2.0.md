@@ -1,9 +1,9 @@
 ### GHCTF 2.0
 - Team: RedCall
-- Role: Player 
+- Role: Player (cryptography,misc,osint,forensics)
 
 **Description:**
-Participated in GHCTF 2.0 as part of team *RedCall*. I contributed by solving multiple challenges, mainly in cryptography and general skills. This experience helped me improve my analytical thinking, speed, and teamwork during real-time competitions.
+Participated in GHCTF 2.0 as part of team *RedCall*. I contributed by solving multiple challenges, mainly in cryptography,misc,osint,forensics . This experience helped me improve my analytical thinking, speed, and teamwork during real-time competitions.
 
 **What I gained:**
 - Real CTF competition experience IRL
@@ -11,7 +11,8 @@ Participated in GHCTF 2.0 as part of team *RedCall*. I contributed by solving mu
 - Team collaboration skills
 
 ## solved challenges:
-#### Challenge: The Goat
+
+#### Challenge 1: The Goat
 - Category: Crypto
 - Difficulty: Medium
 
@@ -83,7 +84,7 @@ print(flag)
 the Flag:
 ghctf{SIUUUUUUUUUUUUUUUUUUUUUUUUUUUUU}
 --------
-Challenge: LayerCake
+### Challenge 2 : LayerCake
 - Category: Crypto
 - Difficulty: Medium
 
@@ -102,7 +103,7 @@ Encoded string:
 ---
 
 ** Analysis:**
-The challenge name *LayerCake* suggests multiple layers of encoding.
+The challenge  *LayerCake* suggests multiple layers of encoding.
 
 Using an online analysis tools Decode, the string was identified as likely being encoded in **Base62**. After decoding, each result still appeared encoded, indicating multiple layers.
 
@@ -136,7 +137,7 @@ Applying multiple layers of encoding does not increase security if each layer is
 An attacker can simply decode step by step until reaching the original message.
 
 ---
-#### Challenge: RSA
+#### Challenge 3: RSA
 - Category: Crypto
 - Difficulty: Easy
 
@@ -153,7 +154,7 @@ Got p, q, n, e, c. No excuses.
 
 ---
 
-**🔍 Analysis:**
+** Analysis:**
 In RSA, the public key consists of (n, e), and the private key is derived using the prime factors of n.
 
 Here, both **p** and **q** are given, which makes the challenge straightforward because:
@@ -220,7 +221,7 @@ RSA is secure only when p and q are secret.
 If the prime factors are known, the private key can be easily computed, making decryption trivial.
 
 ---
-#### Challenge: chess1
+#### Challenge 4: chess1
 - Category: Misc
 - Difficulty: Easy
 
@@ -261,7 +262,7 @@ ghctf{Nxe6+,Ke8,Kh5#}
 
 
 --- 
-#### Challenge: Checkmate
+#### Challenge 5: Checkmate
 - Category: Misc / Forensics
 - Difficulty: Easy
 
@@ -315,3 +316,214 @@ decode(pgn_data, "recovered_secret.bin")
 strings recovered_secret.bin
  Flag:
 ghctf{ch3ckm4te_g00d_g4m3}
+----
+#### Challenge 6: Que miras bobo 1
+- Category: Misc / Steganography
+- Difficulty: Easy
+
+**Description:**
+“Qué mirás, bobo? Qué mirás, bobo? Andá p'allá, bobo.”
+
+A meme image hides a secret flag inside it.
+
+** What I learned:**
+- Basics of image steganography
+- Using brute-force tools to crack hidden data
+- Importance of common password wordlists (rockyou.txt)
+- Real-world usage of `stegseek`
+
+---
+
+** Analysis:**
+The challenge provides an image file that likely contains hidden data.
+
+Since it is a steganography challenge, the flag is probably:
+- embedded inside the image
+- protected with a password
+
+The mention of a meme strongly suggests weak or common passwords → hinting at using a wordlist attack.
+
+
+**Steps:**
+
+1. Identify the file as a steganography challenge  
+2. Use `stegseek` to attempt extraction  
+3. Perform brute-force using `rockyou.txt`  
+4. Extract hidden `flag.txt` file  
+
+** Flag:**
+ghctf{r0ck1ng_1t_w17h_st3gs33kkkkk}
+
+---
+
+#### Challenge 7: Saddam Hussein
+- Category: OSINT 
+- Difficulty: Medium
+
+**Description:**
+Can you find the exact coordinates of this place?
+
+** What I learned:**
+- Reverse image search techniques
+- Using contextual clues for geolocation
+- OSINT reasoning and elimination process
+- Geoguessing strategies
+
+---
+
+**🔍 Analysis:**
+The challenge provides an image of a structure (a tobacco barn).
+A reverse image search reveals that the structure is a **tobacco barn commonly found in Kentucky, USA**.
+However, there are many similar barns in the region, so additional hints are needed.
+
+---
+
+The challenge name **"Saddam Hussein"** is an important clue:
+- Saddam Hussein → Iraq → Baghdad
+- This suggests a naming pattern or indirect hint
+In the United States, there is a place named **Bagdad, Kentucky**, which helps narrow down the search area significantly.
+
+---
+
+** Steps:**
+
+1. Perform reverse image search on the provided image  
+2. Identify the structure as a tobacco barn in Kentucky  
+3. Use the challenge title as a geographical hint  
+4. Focus search on Bagdad, Kentucky  
+5. Use Google Maps to pinpoint exact barn location  
+6. Extract coordinates  
+
+---
+
+**Flag:**
+ghctf{38.266_-85.056}
+
+---
+
+#### Challenge 8: down there
+- Category: Reverse / Forensics
+- Difficulty: Easy
+
+**Description:**
+An image was used to exfiltrate hidden data. We managed to recover the binary used for that process.
+
+
+
+**What I learned:**
+- Basic reverse engineering of ELF binaries
+- Understanding data exfiltration techniques
+- File structure analysis (image + appended data)
+- Using Linux tools for binary inspection
+
+
+**Analysis:**
+The provided ELF binary is responsible for hiding/exfiltrating data inside an image file.
+
+After analyzing the binary, it becomes clear that:
+- The image file contains appended hidden data
+- The flag is directly embedded at the end of the file
+- The program logic confirms a fixed-size data append operation
+
+
+The key insight is that the flag was appended as raw bytes to the image.
+
+Since the flag length is known (26 bytes), it can be extracted directly.
+
+---
+
+**Steps:**
+
+1. Analyze the ELF binary to understand behavior  
+2. Identify that data is appended to the image file  
+3. Extract last 26 bytes from the image  
+4. Inspect extracted output  
+5. Confirm and reconstruct the flag  
+
+
+**Solution:**
+
+Extract last bytes of the image:
+```bash id="revbash1"```
+tail -c 26 kol3otla.png
+
+Alternative method:
+
+strings kol3otla.png
+Flag:
+ghctf{k0l_30tl4f1h4_kh1r3}
+
+---
+#### Challenge 9: BabyGo
+- Category: Reverse Engineering
+- Difficulty: Easy
+
+**Description:**
+Are you ready to go?
+
+
+
+** What I learned:**
+- Identifying Go (Golang) binaries in reverse engineering
+- Using static analysis tools (IDA) on Go compiled executables
+- Understanding simple XOR-based obfuscation
+- Extracting and reversing verification logic
+
+
+** Analysis:**
+After inspecting the binary using `file` and `strings`, it becomes clear that this is a **Go (Golang) compiled binary**, which is known to behave differently from standard C binaries.
+
+The main function reads user input and passes it to a validation function called `main_checkInput()`.
+
+---
+
+Inside `main_checkInput()`:
+- A static array `r[]` is defined
+- Each input character is processed
+- A XOR operation is applied with a constant value (`0xCA`)
+- The result is compared against the stored array
+
+This confirms that the flag is hidden using a **simple XOR cipher**.
+
+---
+
+** Steps:**
+
+1. Identify binary as Go executable  
+2. Analyze `main_checkInput()` logic  
+3. Observe comparison with XOR-transformed array  
+4. Extract encoded values  
+5. Reverse XOR operation with `0xCA` to recover flag  
+
+---
+
+**Solution Idea:**
+Each character of the flag was encoded as:
+
+encoded_char = original_char XOR 0xCA
+
+So to retrieve the flag:
+
+original_char = encoded_char XOR 0xCA
+
+
+---
+
+** Method:**
+Using Python to reverse the array:
+
+```python
+id="babygo_solve"
+encoded = [
+    173,162,169,190,172,177,147,249,255,149,
+    159,184,149,152,249,254,174,179,149,158,
+    250,149,141,250,149,172,169,175,254,255,
+    174,183
+]
+
+flag = "".join(chr(c ^ 0xCA) for c in encoded)
+print(flag)
+```
+Flag:
+
+ghctf{Y35_Ur_R34dy_T0_G0_fce45d}
